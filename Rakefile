@@ -11,4 +11,10 @@ RSpec::Core::RakeTask.new(:spec) do |t|
   t.rspec_opts = %w(--color --format doc)
 end
 
-task :default => :spec
+desc "Run the test integration suite"
+RSpec::Core::RakeTask.new(:integration) do |t|
+  t.pattern = FileList['integration/**/*_spec.rb']
+  t.rspec_opts = %w(--color --format doc)
+end
+
+task :default => [:spec, :integration]
