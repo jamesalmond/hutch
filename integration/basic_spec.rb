@@ -10,7 +10,7 @@ describe "basic message queue integration" do
     Class.new do
       include Hutch::Consumer
       include Hutch::Test::MessageRecorder
-      consume 'hutch.integration.test1'
+      consume    'hutch.integration.test1'
       queue_name 'hutch_integration_test'
     end
   end
